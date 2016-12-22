@@ -7,6 +7,11 @@ dependencies:
     - docker info
     - docker build --rm=false -t johnnywidth/synopsis-ui .
 
+test:
+  override:
+    - go get -t -d -v ./...
+    - go test -v -race ./...
+
 deployment:
   hub:
     branch: master
