@@ -1,6 +1,6 @@
 # Synopsis UI [![CircleCI](https://circleci.com/gh/johnnywidth/synopsis-ui.svg?style=svg)](https://circleci.com/gh/johnnywidth/synopsis-ui)
 
-Synopsis - it ui for [synopsis](https://github.com/johnnywidth/synopsis) tool.
+UI based on [synopsis](https://github.com/johnnywidth/synopsis) tool.
 It is work like [satis](https://getcomposer.org/doc/articles/handling-private-packages-with-satis.md).
 But more faster, because build time not depend from quantity of repository.
 
@@ -8,7 +8,7 @@ But more faster, because build time not depend from quantity of repository.
     go get github.com/johnnywidth/synopsis-ui
     cd $GOPATH/src/github.com/johnnywidth/synopsis-ui/
     go build
-    ./synopsis-ui
+    PORT=9091 FILE="/data/config.json" THREAD=50 OUTPUT="/data/output" synopsis-ui
 
 ## Run by Docker
     docker run
