@@ -16,8 +16,11 @@ func main() {
 
 	router := mux.NewRouter().StrictSlash(true)
 
-	RegisterRepoController(router)
-	RegisterPackageController(router)
+	router.Methods("GET").Path("/package/all").HandlerFunc(AllPackagesHandler)
+	router.Methods("GET").Path("/package/update").HandlerFunc(PackageUpdateHandler)
+	router.Methods("GET").Path("/repo").HandlerFunc(GetAllRepoHandler)
+	router.Methods("POST").Path("/repo").HandlerFunc(AddRepoHandler)
+	router.Methods("DELETE").Path("/repo").HandlerFunc(DeleteRepoHandler)
 
 	outputDir := os.Getenv("OUTPUT") + "/"
 	router.HandleFunc("/packages.json", func(res http.ResponseWriter, req *http.Request) {
